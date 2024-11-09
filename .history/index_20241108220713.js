@@ -11,8 +11,7 @@ app.use(cors());
 app.use(express.json());
 const Port = process.env.PORT;
 const MONGO_URL = process.env.MONGO_URL;
-const CORSE_OPTIONS = process.env.CORSE_OPTIONS;
-console.log("CORSE_OPTIONS", CORSE_OPTIONS)
+Const CORSE_OPTIONS=process.env.CORSE_OPTIONS
 // const PORT = 5000;
 // const MONGO_URL = "mongodb://127.0.0.1:27017/chat"
 
@@ -38,7 +37,7 @@ const server = app.listen(Port, () =>
 
 const io = socket(server, {
   cors: {
-    origin: CORSE_OPTIONS,
+    origin: "http://localhost:3000",
     credentials: true,
   },
 });
