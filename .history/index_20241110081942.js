@@ -7,11 +7,7 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-// app.use(cors());
-app.use(cors({
-  origin: '*', // Allow all origins
-  credentials: true, // If needed, allows credentials like cookies
-}));
+app.use(cors());
 app.use(express.json());
 
 const Port = process.env.PORT;
@@ -43,7 +39,7 @@ const server = app.listen(Port, () =>
 
 const io = socket(server, {
   cors: {
-    origin: '*',
+    origin: '*', // Allow all origins for Socket.io
     methods: ["GET", "POST"],
     // origin: CORSE_OPTIONS,
     credentials: true,

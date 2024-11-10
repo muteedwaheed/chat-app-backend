@@ -7,11 +7,7 @@ const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
-// app.use(cors());
-app.use(cors({
-  origin: '*', // Allow all origins
-  credentials: true, // If needed, allows credentials like cookies
-}));
+app.use(cors());
 app.use(express.json());
 
 const Port = process.env.PORT;
