@@ -1,0 +1,43 @@
+GET http://localhost:8000/
+
+//                          create
+###
+GET http://localhost:8000/create?name=muteeb&email=muteeb@email.com&password=muteeb
+
+### Add additional users if needed
+GET http://localhost:8000/create?name=nabeel&email=nabeel@email.com&password=nabeel
+
+### 
+GET http://localhost:8000/create?name=ahsan&email=ahsan@email.com&password=ahsan
+
+//                          duplicate user
+###
+GET http://localhost:8000/create?name=muteeb&email=muteeb@email.com&password=muteeb
+
+
+//                           read all
+###
+GET http://localhost:8000/all
+
+//                          read
+###
+GET http://localhost:8000/read?email=muteeb@email.com
+
+
+//                          update
+### Change your name
+GET http://localhost:8000/update?name=naeem&email=muteeb@email.com
+
+//                          delete
+### Deleting your entry
+GET http://localhost:8000/delete?email=muteeb@email.com
+
+### Read all entries after deletion
+GET http://localhost:8000/all
+
+### Delete all user
+GET http://localhost:8000/deleteAll?
+
+### Check remaining entries
+GET http://localhost:8000/all
+

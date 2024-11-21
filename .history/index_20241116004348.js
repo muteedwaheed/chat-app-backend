@@ -3,18 +3,15 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const messageRoutes = require("./routes/messages");
-const userCrud = require("./routes/user-crud");
 const app = express();
 const socket = require("socket.io");
 require("dotenv").config();
 
 // app.use(cors());
-app.use(
-  cors({
-    origin: "*", // Allow all origins
-    credentials: true, // If needed, allows credentials like cookies
-  })
-);
+app.use(cors({
+  origin: '*', // Allow all origins
+  credentials: true, // If needed, allows credentials like cookies
+}));
 app.use(express.json());
 
 const Port = process.env.PORT;
@@ -30,24 +27,24 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("DB Connection Successful");
+    console.log("DB Connetion Successfull");
   })
   .catch((err) => {
     console.log(err.message);
   });
 
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/", userCrud);
 
-const server = app.listen(Port, () => console.log(`Server started on ${Port}`));
+const server = app.listen(Port, () =>
+  console.log(`Server started on ${Port}`)
+);
 
-app.get("/", (req, res) => {
-  res.send("Hello from the server!");
-})
 const io = socket(server, {
   cors: {
-    origin: "*",
+    origin: '*',
     methods: ["GET", "POST"],
     // origin: CORSE_OPTIONS,
     credentials: true,
@@ -68,3 +65,4 @@ io.on("connection", (socket) => {
     }
   });
 });
+
