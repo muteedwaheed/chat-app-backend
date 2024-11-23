@@ -38,7 +38,7 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/", userCrud);
+app.use("/s", userCrud);
 
 const server = app.listen(Port, () => console.log(`Server started on ${Port}`));
 
@@ -65,6 +65,5 @@ io.on("connection", (socket) => {
     const sendUserSocket = onlineUsers.get(data.to);
     if (sendUserSocket) {
       socket.to(sendUserSocket).emit("msg-recieve", data.msg);
-    }
-  });
+    }  });
 });

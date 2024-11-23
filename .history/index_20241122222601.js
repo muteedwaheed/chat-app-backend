@@ -38,12 +38,12 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/", userCrud);
+app.use("/api/", userCrud);
 
 const server = app.listen(Port, () => console.log(`Server started on ${Port}`));
 
 app.get("/", (req, res) => {
-  res.send("Hello from the server!");
+  resend("Hello from the server!");
 });
 const io = socket(server, {
   cors: {
