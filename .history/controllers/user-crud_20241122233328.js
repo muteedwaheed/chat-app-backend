@@ -9,7 +9,7 @@ exports.createUser = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
-    return res.json({ status: true, msg: "user created successfully", user });
+    return res.json({ status: true, user, msg: "user created successfully" });
   } catch (error) {
     console.log(error);
     next(error);

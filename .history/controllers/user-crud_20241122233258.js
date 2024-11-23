@@ -9,7 +9,7 @@ exports.createUser = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
-    return res.json({ status: true, msg: "user created successfully", user });
+    return res.json({ status: true, user, msg: "user created successfully" });
   } catch (error) {
     console.log(error);
     next(error);
@@ -21,8 +21,8 @@ exports.readAllUsers = async (req, res, next) => {
     // console.log(findUser);
     return res.json({
       status: true,
-      msg: "all users fetch successfully",
       user: findUser,
+      msg: "all users fetch successfully",
     });
   } catch (error) {
     next(error);
@@ -36,8 +36,8 @@ exports.readSingleUsers = async (req, res, next) => {
     console.log(read);
     return res.json({
       status: true,
-      msg: `user ${email} get successfully`,
       user: read,
+      msg: `user ${email} get successfully`,
     });
   } catch (error) {
     next(error);
@@ -54,8 +54,8 @@ exports.updateUser = async (req, res, next) => {
     console.log(updateUser);
     return res.json({
       status: true,
-      msg: `user ${name} updated successfully`,
       user: updateUser,
+      msg: `user ${name} updated successfully`,
     });
   } catch (error) {
     next(error);
