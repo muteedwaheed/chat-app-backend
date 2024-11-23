@@ -5,7 +5,7 @@ GET https://chat-app-backend-one-iota.vercel.app/
 GET https://chat-app-backend-one-iota.vercel.app/create?name=muteeb&email=muteeb@email.com&password=muteeb
 
 ### Add additional users if needed
-GET https://chat-app-backend-one-iota.vercel.app/create?name=nabeel&email=nabeel@email.com&password=nabeel
+GET https://chat-app-finalproject.vercel.app/create?name=nabeel&email=nabeel@email.com&password=nabeel
 
 ### 
 GET http://localhost:8000/create?name=ahsan&email=ahsan@email.com&password=ahsan
@@ -26,7 +26,7 @@ GET http://localhost:8000/read?email=muteeb@email.com
 
 //                          update
 ### Change your name
-GET http://localhost:8000/update?name=muteeb&email=helo@email.com
+GET http://localhost:8000/update?name=naeem&email=muteeb@email.com
 
 //                          delete
 ### Deleting your entry

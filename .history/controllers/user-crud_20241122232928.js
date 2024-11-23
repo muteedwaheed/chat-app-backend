@@ -69,7 +69,7 @@ exports.deleteUser = async (req, res, next) => {
     return res.json({
       status: true,
       user: deleteUser,
-      msg: `user ${email} deleted successfully`,
+      msg: `user ${name} updated successfully`,
     });
   } catch (error) {
     next(error);
@@ -79,11 +79,7 @@ exports.deleteUser = async (req, res, next) => {
 exports.deleteAll = async (req, res, next) => {
   try {
     const deleteAll = await User.deleteMany();
-    return res.json({
-      status: true,
-      user: deleteAll,
-      msg: "all users deleted successfully",
-    });
+    return res.json({ status: true, user: deleteAll });
   } catch (error) {
     next(error);
   }

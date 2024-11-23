@@ -9,7 +9,7 @@ exports.createUser = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
-    return res.json({ status: true, user, msg: "user created successfully" });
+    return res.json({ status: true, user ,});
   } catch (error) {
     console.log(error);
     next(error);
@@ -19,11 +19,7 @@ exports.readAllUsers = async (req, res, next) => {
   try {
     const findUser = await User.find();
     // console.log(findUser);
-    return res.json({
-      status: true,
-      user: findUser,
-      msg: "all users fetch successfully",
-    });
+    return res.json({ status: true, user: findUser });
   } catch (error) {
     next(error);
   }
@@ -34,11 +30,7 @@ exports.readSingleUsers = async (req, res, next) => {
     const { email } = req.query;
     const read = await User.findOne({ email: email });
     console.log(read);
-    return res.json({
-      status: true,
-      user: read,
-      msg: `user ${email} get successfully`,
-    });
+    return res.json({ status: true, user: read });
   } catch (error) {
     next(error);
   }
@@ -52,11 +44,7 @@ exports.updateUser = async (req, res, next) => {
       { new: true }
     );
     console.log(updateUser);
-    return res.json({
-      status: true,
-      user: updateUser,
-      msg: `user ${name} updated successfully`,
-    });
+    return res.json({ status: true, user: updateUser });
   } catch (error) {
     next(error);
   }
@@ -66,11 +54,7 @@ exports.deleteUser = async (req, res, next) => {
     const { email } = req.query;
     const deleteUser = await User.findOneAndDelete({ email: email });
     console.log(deleteUser);
-    return res.json({
-      status: true,
-      user: deleteUser,
-      msg: `user ${email} deleted successfully`,
-    });
+    return res.json({ status: true, user: deleteUser });
   } catch (error) {
     next(error);
   }
@@ -79,11 +63,7 @@ exports.deleteUser = async (req, res, next) => {
 exports.deleteAll = async (req, res, next) => {
   try {
     const deleteAll = await User.deleteMany();
-    return res.json({
-      status: true,
-      user: deleteAll,
-      msg: "all users deleted successfully",
-    });
+    return res.json({ status: true, user: deleteAll });
   } catch (error) {
     next(error);
   }

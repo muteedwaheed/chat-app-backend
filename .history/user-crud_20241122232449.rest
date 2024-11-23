@@ -26,7 +26,7 @@ GET http://localhost:8000/read?email=muteeb@email.com
 
 //                          update
 ### Change your name
-GET http://localhost:8000/update?name=muteeb&email=helo@email.com
+GET http://localhost:8000/update?name=muteeb&email=muteeb@email.com
 
 //                          delete
 ### Deleting your entry

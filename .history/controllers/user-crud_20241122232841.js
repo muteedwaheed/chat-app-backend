@@ -52,11 +52,7 @@ exports.updateUser = async (req, res, next) => {
       { new: true }
     );
     console.log(updateUser);
-    return res.json({
-      status: true,
-      user: updateUser,
-      msg: `user ${name} updated successfully`,
-    });
+    return res.json({ status: true, user: updateUser });
   } catch (error) {
     next(error);
   }
@@ -66,11 +62,7 @@ exports.deleteUser = async (req, res, next) => {
     const { email } = req.query;
     const deleteUser = await User.findOneAndDelete({ email: email });
     console.log(deleteUser);
-    return res.json({
-      status: true,
-      user: deleteUser,
-      msg: `user ${email} deleted successfully`,
-    });
+    return res.json({ status: true, user: deleteUser });
   } catch (error) {
     next(error);
   }
@@ -79,11 +71,7 @@ exports.deleteUser = async (req, res, next) => {
 exports.deleteAll = async (req, res, next) => {
   try {
     const deleteAll = await User.deleteMany();
-    return res.json({
-      status: true,
-      user: deleteAll,
-      msg: "all users deleted successfully",
-    });
+    return res.json({ status: true, user: deleteAll });
   } catch (error) {
     next(error);
   }

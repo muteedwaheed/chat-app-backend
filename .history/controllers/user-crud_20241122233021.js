@@ -22,7 +22,7 @@ exports.readAllUsers = async (req, res, next) => {
     return res.json({
       status: true,
       user: findUser,
-      msg: "all users fetch successfully",
+      msg: "all users fetch successfully"
     });
   } catch (error) {
     next(error);
@@ -37,7 +37,7 @@ exports.readSingleUsers = async (req, res, next) => {
     return res.json({
       status: true,
       user: read,
-      msg: `user ${email} get successfully`,
+      msg: `user ${email} get successfully`
     });
   } catch (error) {
     next(error);
@@ -55,7 +55,7 @@ exports.updateUser = async (req, res, next) => {
     return res.json({
       status: true,
       user: updateUser,
-      msg: `user ${name} updated successfully`,
+      msg: `user ${name} updated successfully`
     });
   } catch (error) {
     next(error);
@@ -69,7 +69,7 @@ exports.deleteUser = async (req, res, next) => {
     return res.json({
       status: true,
       user: deleteUser,
-      msg: `user ${email} deleted successfully`,
+      msg: `user ${email} deleted successfully`
     });
   } catch (error) {
     next(error);
@@ -82,7 +82,7 @@ exports.deleteAll = async (req, res, next) => {
     return res.json({
       status: true,
       user: deleteAll,
-      msg: "all users deleted successfully",
+      msg: "all users deleted successfully`,
     });
   } catch (error) {
     next(error);
