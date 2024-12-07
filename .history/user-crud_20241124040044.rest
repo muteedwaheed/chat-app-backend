@@ -1,4 +1,4 @@
-GET https://chat-app-backend-one-iota.vercel.app/
+GET https://website-chat-app.vercel.app/
 
 //                          create
 ### 

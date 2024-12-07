@@ -51,7 +51,7 @@ exports.updateUser = async (req, res, next) => {
       { email: email },
       { new: true }
     );
-    console.log(updateUser);
+    // console.log(updateUser);
     return res.json({
       status: true,
       msg: `user ${name} updated successfully`,
@@ -65,7 +65,7 @@ exports.deleteUser = async (req, res, next) => {
   try {
     const { email } = req.query;
     const deleteUser = await User.findOneAndDelete({ email: email });
-    console.log(deleteUser);
+    // console.log(deleteUser);
     return res.json({
       status: true,
       msg: `user ${email} deleted successfully`,
@@ -88,3 +88,19 @@ exports.deleteAll = async (req, res, next) => {
     next(error);
   }
 };
+// exports.readSig = async (req, res, next) => {
+//   try {
+//     const { id } = req.params;
+//     // const { id } = req.query;
+//     const findUser = await User.findById({
+//       _id: id,
+//     });
+//     return res.json({
+//       status: true,
+//       msg: " users get successfully",
+//       user: findUser,
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// };

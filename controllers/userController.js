@@ -1,16 +1,33 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
+    console.log(user);
+
     if (!user)
       return res.json({ msg: "Incorrect Username or Password", status: false });
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
       return res.json({ msg: "Incorrect Username or Password", status: false });
     delete user.password;
+    const previousToken = user.token;
+    if (previousToken) {
+      user.token = null;
+      await user.save();
+    }
+    const token = jwt.sign(
+      {
+        id: user._id,
+      },
+      "chatApp-secure-key",
+      { expiresIn: "24h" }
+    );
+    user.token = token;
+    await user.save();
     return res.json({ status: true, user });
   } catch (ex) {
     next(ex);
@@ -33,6 +50,16 @@ module.exports.register = async (req, res, next) => {
       password: hashedPassword,
     });
     delete user.password;
+    console.log(user);
+    const jwtToken = jwt.sign(
+      {
+        id: user._id,
+      },
+      "chatApp-secure-key",
+      { expiresIn: "24h" }
+    );
+    user.token = jwtToken;
+    await user.save();
     return res.json({ status: true, user });
   } catch (ex) {
     next(ex);
@@ -81,5 +108,24 @@ module.exports.logOut = (req, res, next) => {
     return res.status(200).send();
   } catch (ex) {
     next(ex);
+  }
+};
+module.exports.auth = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const userData = await User.findById({ _id: userId });
+    if (!userData) {
+       return res.json({
+         msg: "User not found",
+         status: false
+       });
+    }
+    return res.json({
+      msg: "Auth login successfully",
+      status: true,
+      data: userData,
+    });
+  } catch (error) {
+    next(error);
   }
 };

@@ -33,11 +33,11 @@ GET https://chat-app-backend-one-iota.vercel.app/update?name=muteeb&email=helo@e
 GET https://chat-app-backend-one-iota.vercel.app/delete?email=muteeb@email.com
 
 ### Read all entries after deletion
-GET https://chat-app-backend-one-iota.vercel.app/all
+GET http://localhost:8000/all
 
 ### Delete all user
-GET https://chat-app-backend-one-iota.vercel.app/deleteAll?
+GET http://localhost:8000/deleteAll?
 
 ### Check remaining entries
-GET https://chat-app-backend-one-iota.vercel.app/all
+GET http://localhost:8000/all
 

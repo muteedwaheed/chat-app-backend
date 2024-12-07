@@ -39,5 +39,5 @@ GET https://chat-app-backend-one-iota.vercel.app/all
 GET https://chat-app-backend-one-iota.vercel.app/deleteAll?
 
 ### Check remaining entries
-GET https://chat-app-backend-one-iota.vercel.app/all
+GET http://localhost:8000/all
 

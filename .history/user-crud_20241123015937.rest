@@ -36,8 +36,8 @@ GET https://chat-app-backend-one-iota.vercel.app/delete?email=muteeb@email.com
 GET https://chat-app-backend-one-iota.vercel.app/all
 
 ### Delete all user
-GET https://chat-app-backend-one-iota.vercel.app/deleteAll?
+GET http://localhost:8000/deleteAll?
 
 ### Check remaining entries
-GET https://chat-app-backend-one-iota.vercel.app/all
+GET http://localhost:8000/all
 
