@@ -2,10 +2,10 @@ GET https://chat-app-backend-one-iota.vercel.app/
 
 //                          create
 ### 
-GET https://chat-app-backend-one-iota.vercel.app/create?name=muteeb&email=muteeb@email.com&password=muteeb
+GET https://chat-app-backend-one-iota.vercel.app/create?name=muteeb5&email=muteeb@email.com&password=muteeb
 
 ### Add additional users if needed
-GET https://chat-app-backend-one-iota.vercel.app/create?name=nabeel&email=nabeel@email.com&password=nabeel
+GET https://chat-app-backend-one-iota.vercel.app/create?name=nabeel1234&email=nabeel@email.com&password=nabeel
 
 ### 
 GEThttps://chat-app-backend-one-iota.vercel.app/create?name=ahsan&email=ahsan@email.com&password=ahsan

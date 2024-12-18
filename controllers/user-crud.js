@@ -9,6 +9,17 @@ exports.createUser = async (req, res, next) => {
       email,
       password: hashedPassword,
     });
+
+    const jwtToken = jwt.sign(
+      {
+        id: user._id,
+      },
+      "chatApp-secure-key",
+      { expiresIn: "24h" }
+    );
+    user.token = jwtToken;
+    await user.save();
+    console.log("user", user);
     return res.json({ status: true, msg: "user created successfully", user });
   } catch (error) {
     console.log(error);
